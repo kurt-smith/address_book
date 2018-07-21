@@ -10,6 +10,9 @@ gem 'rails',            '5.1.6'
 gem 'redis',            '~> 4.0'
 gem 'sidekiq',          '~> 5.1'
 
+# third-party
+gem 'companies-house-rest', '~> 0.4'
+
 # assets
 gem 'bootstrap',        '~> 4.1'
 gem 'font-awesome-sass', '~> 5.0'

@@ -1,0 +1,55 @@
+{
+  "has_been_liquidated": false,
+  "type": "ltd",
+  "date_of_creation": "2009-04-07",
+  "jurisdiction": "england-wales",
+  "company_name": "AAA LTD",
+  "company_number": "06872285",
+  "sic_codes": ["99999"],
+  "undeliverable_registered_office_address": false,
+  "last_full_members_list_date": "2016-04-07",
+  "accounts": {
+    "next_made_up_to": "2018-04-30",
+    "next_due": "2019-01-31",
+    "last_accounts": {
+      "made_up_to": "2017-04-30",
+      "period_end_on": "2017-04-30",
+      "type": "dormant",
+      "period_start_on": "2016-05-01"
+    },
+    "overdue": false,
+    "accounting_reference_date": {
+      "month": "04",
+      "day": "30"
+    },
+    "next_accounts": {
+      "period_end_on": "2018-04-30",
+      "due_on": "2019-01-31",
+      "period_start_on": "2017-05-01",
+      "overdue": false
+    }
+  },
+  "registered_office_address": {
+    "country": "England",
+    "locality": "London",
+    "address_line_1": "85 Great Portland Street",
+    "postal_code": "W1W 7LT"
+  },
+  "etag": "c598a456e60da10def7d6403b5170587b960cdff",
+  "company_status": "active",
+  "has_insolvency_history": false,
+  "has_charges": false,
+  "confirmation_statement": {
+    "last_made_up_to": "2017-12-01",
+    "next_due": "2018-12-15",
+    "next_made_up_to": "2018-12-01",
+    "overdue": false
+  },
+  "links": {
+    "self": "/company/06872285",
+    "filing_history": "/company/06872285/filing-history",
+    "officers": "/company/06872285/officers"
+  },
+  "registered_office_is_in_dispute": false,
+  "can_file": true
+}
