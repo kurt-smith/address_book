@@ -1,0 +1,14 @@
+AllCops:
+  TargetRubyVersion: 2.4
+Documentation:
+  Enabled: false
+LineLength:
+  Max: 140
+Style/RaiseArgs:
+  EnforcedStyle: compact
+Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 25
+Lint/Debugger:
+  Enabled: false

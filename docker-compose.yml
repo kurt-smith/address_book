@@ -1,0 +1,54 @@
+version: '2.1'
+
+services:
+  mongo:
+    image: mongo:3.4.15
+    restart: always
+    expose:
+      - 27017
+    volumes:
+      - 'mongodb:/var/lib/mongodb/data'
+
+  redis:
+    image: 'redis:3.2-alpine'
+    command: redis-server
+    expose:
+      - 6379
+    volumes:
+      - 'redis:/var/lib/redis/data'
+    healthcheck:
+      test: "redis-cli ping"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  sidekiq:
+    depends_on:
+      - redis
+      - mongo
+    build: .
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - '.:/app'
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    env_file:
+      - '.env'
+
+
+  app:
+    build: .
+    image: companies_house
+    volumes:
+      - .:/app
+    expose:
+      - 3000
+    depends_on:
+      - mongo
+      - redis
+    env_file:
+      - '.env'
+
+volumes:
+  redis:
+  mongodb:
