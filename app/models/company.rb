@@ -7,6 +7,8 @@ class Company
 
   store_in collection: 'companies'
 
+  has_many :officers, dependent: :destroy
+
   field :name, type: String
   field :number, type: Integer
   field :active, type: Boolean, default: false
