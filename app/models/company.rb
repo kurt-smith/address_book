@@ -7,6 +7,7 @@ class Company
 
   store_in collection: 'companies'
 
+  embeds_one :address, autobuild: true
   has_many :officers, dependent: :destroy
 
   field :name, type: String

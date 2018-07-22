@@ -13,6 +13,7 @@ describe Company, models: true do
   it { is_expected.to have_field(:deleted_at).of_type(Time).with_default_value_of(nil) }
 
   it { is_expected.to have_many(:officers).of_type(Officer).with_dependent(:destroy) }
+  it { is_expected.to embed_one(:address) }
 
   context 'validations' do
     describe 'name' do

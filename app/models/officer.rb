@@ -7,6 +7,7 @@ class Officer
 
   store_in collection: 'officers'
 
+  embeds_one :address, autobuild: true
   belongs_to :company
 
   field :first_name, type: String

@@ -15,6 +15,7 @@ describe Officer, models: true do
   it { is_expected.to have_field(:deleted_at).of_type(Time).with_default_value_of(nil) }
 
   it { is_expected.to belong_to(:company).of_type(Company) }
+  it { is_expected.to embed_one(:address) }
 
   context 'validations' do
     %i[first_name last_name occupation].each do |field|
