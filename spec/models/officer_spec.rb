@@ -9,6 +9,7 @@ describe Officer, models: true do
   it { is_expected.to have_field(:first_name).of_type(String) }
   it { is_expected.to have_field(:last_name).of_type(String) }
   it { is_expected.to have_field(:occupation).of_type(String) }
+  it { is_expected.to have_field(:corporation).of_type(Mongoid::Boolean) }
   it { is_expected.to have_field(:residence).of_type(String).with_default_value_of(nil) }
   it { is_expected.to have_field(:appointed_on).of_type(Date).with_default_value_of(nil) }
   it { is_expected.to have_timestamps }

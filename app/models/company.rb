@@ -11,7 +11,7 @@ class Company
   has_many :officers, dependent: :destroy
 
   field :name, type: String
-  field :number, type: Integer
+  field :number, type: String
   field :active, type: Boolean, default: false
   field :description, type: String, default: nil
 
@@ -20,13 +20,6 @@ class Company
                                  message: 'must have more than 1 and less than 255 characters' }
 
   validates :number, presence: { message: 'is required' },
-                     numericality: { only_integer: true }
-
-  before_validation :standardize_fields
-
-  private
-
-  def standardize_fields
-    self.number = number.presence&.to_i
-  end
+                     length:     { minimum: 1, maximum: 255,
+                                   message: 'must have more than 1 and less than 255 characters' }
 end

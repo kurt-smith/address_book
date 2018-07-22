@@ -1,0 +1,3 @@
+$('#company_modal, .modal-backdrop, .companyLoader').remove();
+$('body').append('<%= j render("companies_house/action/show") %>');
+$('#company_modal').modal();

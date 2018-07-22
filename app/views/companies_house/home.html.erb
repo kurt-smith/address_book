@@ -1,0 +1,25 @@
+<div class="jumbotron jumbotron-fluid" id="homeJumbotron">
+  <div class="container">
+    <%= image_tag('companies_house.svg') %>
+
+    <div class="row">
+      <div class="col">
+        <%= form_tag({ controller: :companies_house, action: :company_search }, id: :company_search, method: :get, remote: true, class: 'form-inline') do %>
+          <div class="col-12">
+            <div class="input-group">
+              <input type="text" class="form-control" id="company_name" name="company[name]" placeholder="Search Company by Name" value="<%= params.dig(:company, :name) %>">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                  <%= icon('fas', 'search') %><span class="d-none d-md-inline">&nbsp;Search</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="searchResults"></div>

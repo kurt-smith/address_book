@@ -1,0 +1,47 @@
+<div class="modal fade" id="company_modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <%= icon("fas", "building", @company[:name]) %> &middot; <%= @company[:number] %>
+        </h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="text-center">
+          <small class="text-muted">
+            <%= @company[:address].compact.map{ |k, v| v }.join(', ') %>
+          </small>
+
+          <h5>
+            <%= @company[:active] ? icon("fas", "check-circle", 'Active') : icon("fas", "check-times", 'Inactive') %>
+          </h5>
+        </div>
+
+        <!-- Company Officers -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Role</th>
+              <th scope="col">Name</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @officers.each do |officer| %>
+              <tr>
+                <th scope="row"><%= officer[:occupation] %></th>
+                <td><%= "#{officer[:first_name]} #{officer[:last_name]}" %></td>
+                <td><%= officer[:appointed_on] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
