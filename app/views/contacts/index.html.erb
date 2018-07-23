@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="text-right">
+        <%= link_to(icon('fas', 'plus'), new_contact_path, class: 'btn btn-info') %>
+      </div>
+
+      <h1>
+        <%= icon('far', 'address-book', 'Address Book') %>
+      </h1>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped table-light">
+        <thead>
+          <tr>
+            <th scope="col">Company</th>
+            <th scope="col">Name/Company Number</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <th scope="row"><%= contact[:company] %></th>
+              <td><%= contact[:name] %></td>
+              <td><small><%= contact[:address] %></small></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

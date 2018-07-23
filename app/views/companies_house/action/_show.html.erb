@@ -41,6 +41,36 @@
             <% end %>
           </tbody>
         </table>
+
+        <hr>
+
+        <!-- import company and contacts -->
+        <%= form_tag({ controller: :contacts, action: :import }, id: :import_company_contacts_form, method: :post, remote: true) do %>
+          <input type="hidden" name="company[name]" value="<%= @company[:name] %>">
+          <input type="hidden" name="company[number]" value="<%= @company[:number] %>">
+          <input type="hidden" name="company[address][address_line_1]" value="<%= @company[:address][:address_line_1] %>">
+          <input type="hidden" name="company[address][address_line_2]" value="<%= @company[:address][:address_line_2] %>">
+          <input type="hidden" name="company[address][country]" value="<%= @company[:address][:country] %>">
+          <input type="hidden" name="company[address][region]" value="<%= @company[:address][:region] %>">
+          <input type="hidden" name="company[address][locality]" value="<%= @company[:address][:locality] %>">
+          <input type="hidden" name="company[address][premises]" value="<%= @company[:address][:premises] %>">
+          <input type="hidden" name="company[address][postal_code]" value="<%= @company[:address][:postal_code] %>">
+
+          <% @officers.each do |officer| %>
+            <input type="hidden" name="officer[][first_name]" value="<%= officer[:first_name] %>">
+            <input type="hidden" name="officer[][last_name]" value="<%= officer[:last_name] %>">
+            <input type="hidden" name="officer[][occupation]" value="<%= officer[:occupation] %>">
+            <input type="hidden" name="officer[][address][address_line_1]" value="<%= officer[:address][:address_line_1] %>">
+            <input type="hidden" name="officer[][address][address_line_2]" value="<%= officer[:address][:address_line_2] %>">
+            <input type="hidden" name="officer[][address][country]" value="<%= officer[:address][:country] %>">
+            <input type="hidden" name="officer[][address][region]" value="<%= officer[:address][:region] %>">
+            <input type="hidden" name="officer[][address][locality]" value="<%= officer[:address][:locality] %>">
+            <input type="hidden" name="officer[][address][premises]" value="<%= officer[:address][:premises] %>">
+            <input type="hidden" name="officer[][address][postal_code]" value="<%= officer[:address][:postal_code] %>">
+          <% end %>
+
+          <button type="submit" class="btn btn-block btn-success">Import Contacts</button>
+        <% end %>
       </div>
     </div>
   </div>

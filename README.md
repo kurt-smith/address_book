@@ -9,7 +9,11 @@ Live demo available at https://companies-house-search.herokuapp.com/
 
 This project is a Ruby on Rails demo of interacting with a the Companies House API.  The following features have been implemented:
 
-- Create an address book that can record two types of entities - people (first name, last name) and companies (get company name, company number).  the address book can relate people to companies.  The address book can record addresses for people and companies.
+- Create an address book that can record two types of entities
+  - People (officers) (first name, last name)
+  - Companies (get company name, company number)
+  - The address book can relate people to companies
+  - The address book can record addresses for people and companies
 
 - Set up a simple search box that lets me search companies in the Companies House database (search by name is fine)
 
@@ -75,8 +79,17 @@ To start the application from project folder:
 
 ### Future Considerations
 
-1. TBD
+1. Add an external validation that queries Company Number through CH API and validates prior to save
+1. Contact update and delete functionality
 
 ### Tradeoffs
 
-1. TBD
+1. The external Companies House API gem pagination does not seem to work, so only the first 100 records are returned with no ability for paging.
+1. Controller, transformer, and UI tests were not implemented due to time constraints
+1. Officer uniqueness checks were not implemented, so duplicate names could exist per Company
+1. I'm not too keen on the implementation of the Address Book. I started the project building the Company and Officer models and worked my way to Contact (Address Book). By the end, it felt like I was forcing Company and Officer into the Address Book.
+
+### Workflow Assumptions
+
+1. An Officer requires a Company association
+1. Creation of an Officer with an unknown Company will create a new company (Company name/number is not validated)

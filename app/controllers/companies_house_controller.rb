@@ -3,7 +3,7 @@
 class CompaniesHouseController < ApplicationController
   before_action :company_id, only: %i[show]
 
-  ITEMS_PER_PAGE = 50
+  ITEMS_PER_PAGE = 100
 
   def home; end
 

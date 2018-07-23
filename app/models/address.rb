@@ -15,7 +15,8 @@ class Address
   field :premises, type: String
   field :postal_code, type: String
 
-  validates :address_line_1, presence:   { message: 'is required' },
+  validates :address_line_1, allow_blank: true,
+                             presence:   { message: 'is required' },
                              length:     { minimum: 1, maximum: 255,
                                            message: 'must have more than 1 and less than 255 characters' }
 
@@ -24,23 +25,32 @@ class Address
                              length:     { minimum: 1, maximum: 255,
                                            message: 'must have more than 1 and less than 255 characters' }
 
-  validates :country, presence:   { message: 'is required' },
+  validates :country, allow_blank: true,
+                      presence:   { message: 'is required' },
                       length:     { minimum: 1, maximum: 255,
                                     message: 'must have more than 1 and less than 255 characters' }
 
-  validates :region, presence:   { message: 'is required' },
+  validates :region, allow_blank: true,
+                     presence:   { message: 'is required' },
                      length:     { minimum: 1, maximum: 255,
                                    message: 'must have more than 1 and less than 255 characters' }
 
-  validates :locality, presence:   { message: 'is required' },
+  validates :locality, allow_blank: true,
+                       presence:   { message: 'is required' },
                        length:     { minimum: 1, maximum: 255,
                                      message: 'must have more than 1 and less than 255 characters' }
 
-  validates :premises, presence:   { message: 'is required' },
+  validates :premises, allow_blank: true,
+                       presence:   { message: 'is required' },
                        length:     { minimum: 1, maximum: 255,
                                      message: 'must have more than 1 and less than 255 characters' }
 
-  validates :postal_code, presence:   { message: 'is required' },
+  validates :postal_code, allow_blank: true,
+                          presence:   { message: 'is required' },
                           length:     { minimum: 1, maximum: 255,
                                         message: 'must have more than 1 and less than 255 characters' }
+
+  def display_name
+    ["#{premises} #{address_line_1}", address_line_2, country, region, locality, postal_code].map(&:presence).compact.join(', ')
+  end
 end

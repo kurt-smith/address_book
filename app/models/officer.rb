@@ -13,7 +13,7 @@ class Officer
   field :first_name, type: String
   field :last_name, type: String
   field :occupation, type: String
-  field :corporation, type: Boolean
+  field :corporation, type: Boolean, default: false
   field :residence, type: String, default: nil
   field :appointed_on, type: Date, default: nil
 
@@ -26,11 +26,16 @@ class Officer
                         length:     { minimum: 1, maximum: 255,
                                       message: 'must have more than 1 and less than 255 characters' }
 
-  validates :occupation, presence:   { message: 'is required' },
+  validates :occupation, allow_blank: true,
+                         presence:   { message: 'is required' },
                          length:     { minimum: 1, maximum: 255,
                                        message: 'must have more than 1 and less than 255 characters' }
 
   before_validation :standardize_fields
+
+  def name
+    "#{last_name}, #{first_name}"
+  end
 
   private
 

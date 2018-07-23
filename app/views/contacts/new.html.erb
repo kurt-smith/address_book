@@ -1,0 +1,142 @@
+<div class="container">
+  <h1>
+    <%= icon('far', 'address-book', 'New Contact') %>
+  </h1>
+
+  <div class="row">
+    <div class="col">
+      <%= form_tag({ controller: :contacts, action: :create }, id: :new_contacts, method: :post, class: 'bg-light') do %>
+        <div class="company_info">
+          <h5 class="text-center">Company</h5>
+
+          <div class="form-group">
+            <label for="company_name">Name</label>
+            <input type="text" class="form-control" id="company_name" name="company[name]"
+                   value="<%= params.dig(:company, :name) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_number">Number</label>
+            <input type="text" class="form-control" id="company_number" name="company[number]"
+                   value="<%= params.dig(:company, :number) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_address_1">Address 1</label>
+            <input type="text" class="form-control" id="company_address_1" name="company[address][address_line_1]"
+                   value="<%= params.dig(:company, :address, :address_line_1) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_address_2">Address 2</label>
+            <input type="text" class="form-control" id="company_address_2" name="company[address][address_line_2]"
+                   value="<%= params.dig(:company, :address, :address_line_2) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_address_country">Country</label>
+            <input type="text" class="form-control" id="company_address_country" name="company[address][country]"
+                   value="<%= params.dig(:company, :address, :country) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_address_region">Region</label>
+            <input type="text" class="form-control" id="company_address_region" name="company[address][region]"
+                   value="<%= params.dig(:company, :address, :region) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_address_locality">Locality</label>
+            <input type="text" class="form-control" id="company_address_locality" name="company[address][locality]"
+                   value="<%= params.dig(:company, :address, :locality) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_address_premises">Premises</label>
+            <input type="text" class="form-control" id="company_address_premises" name="company[address][premises]"
+                   value="<%= params.dig(:company, :address, :premises) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="company_address_postal_code">Postal Code</label>
+            <input type="text" class="form-control" id="company_address_postal_code" name="company[address][postal_code]"
+                   value="<%= params.dig(:company, :address, :postal_code) %>">
+          </div>
+
+          <input type="hidden" name="company[active]" value="true">
+          <input type="hidden" name="company[company_only]" value="true">
+        </div>
+
+        <button type="button" class="btn btn-block btn-primary" id="addCompanyOfficer">
+          <%= icon('fas', 'plus', 'Add Officer') %>
+        </button>
+
+        <div id="officer_info" style="display:none;">
+          <hr>
+
+          <h5 class="text-center">Officer</h5>
+
+          <div class="form-group">
+            <label for="officer_first_name">First Name</label>
+            <input type="text" class="form-control" id="officer_first_name" name="officer[first_name]"
+                   value="<%= params.dig(:officer, :first_name) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_last_name">Last Name</label>
+            <input type="text" class="form-control" id="officer_last_name" name="officer[last_name]"
+                   value="<%= params.dig(:officer, :last_name) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_address_1">Address 1</label>
+            <input type="text" class="form-control" id="officer_address_1" name="officer[address][address_line_1]"
+                   value="<%= params.dig(:officer, :address, :address_line_1) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_address_2">Address 2</label>
+            <input type="text" class="form-control" id="officer_address_2" name="officer[address][address_line_2]"
+                   value="<%= params.dig(:officer, :address, :address_line_2) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_address_country">Country</label>
+            <input type="text" class="form-control" id="officer_address_country" name="officer[address][country]"
+                   value="<%= params.dig(:officer, :address, :country) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_address_region">Region</label>
+            <input type="text" class="form-control" id="officer_address_region" name="officer[address][region]"
+                   value="<%= params.dig(:officer, :address, :region) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_address_locality">Locality</label>
+            <input type="text" class="form-control" id="officer_address_locality" name="officer[address][locality]"
+                   value="<%= params.dig(:officer, :address, :locality) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_address_premises">Premises</label>
+            <input type="text" class="form-control" id="officer_address_premises" name="officer[address][premises]"
+                   value="<%= params.dig(:officer, :address, :premises) %>">
+          </div>
+
+          <div class="form-group">
+            <label for="officer_address_postal_code">Postal Code</label>
+            <input type="text" class="form-control" id="officer_address_postal_code" name="officer[address][postal_code]"
+                   value="<%= params.dig(:officer, :address, :postal_code) %>">
+          </div>
+        </div>
+
+        <hr>
+
+        <button type="submit" name="submit" class="btn btn-block btn-primary">
+          <%= icon('fas', 'plus', 'Save Contact') %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
